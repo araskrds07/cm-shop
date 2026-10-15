@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#111111">
+<meta name="description" content="Certified Memer: hoodies, sweatshirts and tees from a small horror-comedy. Printed on demand.">
+<title>Certified Memer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="preload" as="image" href="kai_cut2.webp" fetchpriority="high">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 fill=%22%23111%22/%3E%3Ctext x=%2216%22 y=%2223%22 font-size=%2218%22 text-anchor=%22middle%22 fill=%22%23f4d21f%22 font-family=%22Arial Black%22%3ECM%3C/text%3E%3C/svg%3E">
+<style>
+/* Layout: compact store. Short hero with wordmark, red ticker, then horizontal product rail with filter chips, a 3-card style rail, the yellow meme rail, a slim episode band, the embedded Spreadshop, FAQ and footer. */
+:root{
+  --bg:#ebe9e5; --panel:#f6f5f2; --ink:#121212; --muted:#6b6862; --line:#d5d1ca; --band:#111; --bandink:#f2f0ec; --accent:#b3271f;
+  --display:'Archivo','Helvetica Neue',Arial,sans-serif; --body:'Archivo','Helvetica Neue',Arial,sans-serif; --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  --gut:clamp(16px,4vw,56px);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#141413;--panel:#1c1b1a;--ink:#ece9e4;--muted:#9a968f;--line:#2c2a28;--band:#000;--bandink:#ece9e4;--accent:#e0483e;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#141413;--panel:#1c1b1a;--ink:#ece9e4;--muted:#9a968f;--line:#2c2a28;--band:#000;--bandink:#ece9e4;--accent:#e0483e;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 var(--body);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img,video{max-width:100%;display:block}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.lab{font:500 11px/1.3 var(--mono);letter-spacing:.16em;text-transform:uppercase}
+.btn{display:inline-block;background:var(--ink);color:var(--bg);padding:14px 24px;font:600 12px var(--body);letter-spacing:.12em;text-transform:uppercase;transition:background .2s,color .2s,transform .2s}
+.btn:hover{background:var(--accent);color:#fff}
+.ul{font:600 12px var(--body);letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid currentColor;padding:8px 0 3px}
+.ul:hover{color:var(--accent)}
+
+/* strip + header */
+.strip{display:flex;justify-content:space-between;gap:12px;background:var(--band);color:var(--bandink);padding:8px var(--gut)}
+.strip span span{transition:opacity .5s}
+header.site{position:sticky;top:0;z-index:30;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding:14px var(--gut);background:var(--bg);border-bottom:1px solid var(--line);transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+header.site.hide{transform:translateY(-100%)}
+header.site nav{display:flex;gap:22px}
+header.site nav a,.hdr-r a{font:600 12px var(--body);letter-spacing:.08em;text-transform:uppercase}
+header.site nav a:hover,.hdr-r a:hover{color:var(--accent)}
+.logo{font:900 20px/1 var(--display);font-stretch:125%;text-transform:uppercase;white-space:nowrap}
+.hdr-r{display:flex;justify-content:flex-end;gap:20px;align-items:center}
+.hdr-r a{display:inline-flex;gap:8px;align-items:center;padding:8px 0}
+.burger{display:none;width:44px;height:44px;place-items:center}
+.burger i{display:block;width:20px;height:1.6px;background:currentColor;box-shadow:0 6px 0 currentColor,0 -6px 0 currentColor}
+
+/* hero */
+.hero{position:relative;height:clamp(520px,46vw,700px);overflow:hidden}
+.hero .word{position:absolute;left:0;right:0;top:50%;z-index:1;transform:translateY(calc(-56% + var(--py,0px)));text-align:center;font:900 22vw/.8 var(--display);font-stretch:125%;letter-spacing:-.03em;margin:0;white-space:nowrap;user-select:none}
+.hero .word .in{display:inline-block;overflow:hidden;padding-bottom:.04em}
+.hero .word .ch{display:inline-block;transition:transform 1s cubic-bezier(.2,.8,.15,1)}
+.hero .toon{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.toon .burst{stroke:var(--accent);stroke-width:7}
+.toon .doodle{stroke:var(--ink);stroke-width:4;animation:wob 3.2s ease-in-out infinite}
+.toon path{stroke-dasharray:1200;stroke-dashoffset:0;transition:stroke-dashoffset 1.5s cubic-bezier(.2,.7,.2,1)}
+@keyframes wob{50%{transform:translateY(-6px)}}
+.hero .model{position:absolute;left:50%;bottom:0;height:97%;z-index:2;transform:translate(-50%,0);filter:drop-shadow(0 26px 36px rgba(0,0,0,.18));transition:opacity 1s ease .3s}
+.hero .model img{height:100%;width:auto;max-width:none}
+.hero .cta{position:absolute;left:var(--gut);bottom:28px;z-index:3;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.hero .cta .ul{background:var(--bg);padding:10px 10px 5px}
+.hero .tag{position:absolute;right:var(--gut);bottom:30px;z-index:3;text-align:right}
+.js:not(.ready) .hero .word .ch{transform:translateY(105%)}
+.js:not(.ready) .hero .model{opacity:0}
+.js:not(.ready) .toon path{stroke-dashoffset:1200}
+
+/* ticker */
+.ticker{overflow:hidden;background:var(--accent);color:#fff;padding:11px 0;white-space:nowrap}
+.ticker .tk{display:inline-flex;gap:30px;will-change:transform;font:900 clamp(16px,1.8vw,24px)/1 var(--display);font-stretch:118%;text-transform:uppercase}
+.ticker .tk span{display:inline-flex;gap:30px;align-items:center}.ticker .tk span:after{content:"✶";font-size:.7em}
+
+/* section head + rails */
+.sh{display:flex;justify-content:space-between;align-items:end;gap:16px;padding:44px var(--gut) 18px;flex-wrap:wrap}
+.sh h2{margin:4px 0 0;font:900 clamp(30px,4.4vw,54px)/.95 var(--display);font-stretch:118%;text-transform:uppercase}
+.arrows{display:flex;gap:8px}
+.arrows button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;background:var(--bg);transition:background .2s,color .2s}
+.arrows button:hover{background:var(--ink);color:var(--bg)}
+.chips{display:flex;gap:8px;padding:0 var(--gut) 16px;overflow-x:auto;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chips button{flex:0 0 auto;padding:9px 16px;border:1px solid var(--line);border-radius:999px;font:600 12px var(--body);letter-spacing:.06em;text-transform:uppercase;transition:background .2s,color .2s,border-color .2s}
+.chips button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x proximity;padding:0 var(--gut) 8px;scroll-padding:0 var(--gut);scrollbar-width:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y;cursor:grab}
+.rail.dragging{cursor:grabbing;scroll-snap-type:none}
+.rail.dragging a,.rail.dragging img{pointer-events:none}
+.rail img{-webkit-user-drag:none;user-select:none}
+.prog{height:2px;margin:10px var(--gut) 0;background:var(--line);position:relative;overflow:hidden;border-radius:2px}
+.prog i{position:absolute;left:0;top:0;bottom:0;width:30%;background:var(--ink);border-radius:2px;transition:transform .15s linear}
+.meme .prog{background:rgba(0,0,0,.15)}.meme .prog i{background:#111}
+.rail::-webkit-scrollbar{display:none}
+.rail>*{scroll-snap-align:start;flex:0 0 auto}
+
+/* product card */
+.card{width:clamp(220px,23vw,300px);transition:opacity .3s}
+.card[hidden]{display:none}
+.card .im{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--panel)}
+.card .im img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;transition:transform .8s cubic-bezier(.2,.7,.2,1),opacity .5s}
+.card .im img.pr{position:absolute;inset:0;object-fit:contain;background:#111;padding:8%;opacity:0}
+@media (hover:hover){.card:hover .im img{transform:scale(1.04)}.card:hover .im img.pr{opacity:1;transform:none}}
+.badge{position:absolute;left:10px;top:10px;background:var(--band);color:var(--bandink);padding:4px 8px}
+.badge.red{background:var(--accent);color:#fff}
+.card .qv{position:absolute;left:10px;right:10px;bottom:10px;background:var(--bg);padding:11px;font:600 11px var(--body);letter-spacing:.12em;text-transform:uppercase;transform:translateY(calc(100% + 12px));transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+.card:hover .qv,.card .qv:focus-visible{transform:none}
+@media (hover:none){.card .qv{transform:none}}
+.card h3{margin:10px 0 2px;font:700 14px var(--body);text-transform:uppercase;letter-spacing:.04em}
+.card .meta{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted)}
+.card .meta b{color:var(--ink);font-weight:600}
+.dot{width:12px;height:12px;border-radius:50%;background:#111;border:1px solid var(--line)}
+.endcard{width:clamp(220px,23vw,300px);aspect-ratio:4/5;background:var(--band);color:var(--bandink);display:flex;flex-direction:column;justify-content:space-between;padding:22px}
+.endcard b{font:900 32px/.95 var(--display);font-stretch:118%;text-transform:uppercase}
+
+/* style rail */
+.style{width:clamp(260px,30vw,420px);aspect-ratio:5/4;padding:22px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;transition:transform .3s}
+.style:hover{transform:translateY(-4px)}
+.style h3{margin:0;font:900 clamp(30px,3.4vw,46px)/.9 var(--display);font-stretch:118%;text-transform:uppercase}
+.style p{margin:0;font-size:14px;max-width:26ch}
+.st-kai{background:#141010;color:#f2ece6}.st-kai h3{color:#d3242c}
+.st-mira{background:#2a1f45;color:#f4ecff}.st-mira h3{color:#f0be3c}
+.st-kuro{background:#0b0b0c;color:#8f8a82}.st-kuro h3{color:#d8d2c6}
+
+/* memes */
+.meme{background:#f4d21f;color:#111;margin-top:44px;padding-bottom:36px}
+.meme .sh{padding-top:36px}
+.meme .arrows button{border-color:#111;background:#f4d21f}
+.joke{width:clamp(220px,22vw,280px);background:#fff;border:2px solid #111;box-shadow:5px 5px 0 #111;transition:transform .2s,box-shadow .2s;display:block}
+.joke:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 #111}
+.joke .ji{aspect-ratio:1;background:#ebe9e5;display:grid;place-items:center;overflow:hidden}
+.joke .ji img{width:100%;height:100%;object-fit:cover}
+.joke .jt{padding:12px 14px;display:flex;justify-content:space-between;gap:8px;border-top:2px solid #111}
+.joke h3{margin:0;font:800 14px/1.15 var(--display);text-transform:uppercase}
+.joke span{font:600 12px var(--body);white-space:nowrap}
+.joke.next{background:#111;color:#f4d21f;display:flex;flex-direction:column;justify-content:space-between;padding:20px}
+.joke.next b{font:900 32px/.92 var(--display);font-stretch:118%;text-transform:uppercase}
+.jfall{font:900 24px/1 var(--display);text-transform:uppercase;padding:18px;text-align:center}
+
+/* episode band */
+.episode{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:clamp(16px,3vw,40px);align-items:center;background:#0d0d0d;color:#efece7;padding:22px var(--gut)}
+.episode .vid{width:96px;aspect-ratio:9/16;overflow:hidden;background:#000}
+.episode video{width:100%;height:100%;object-fit:cover}
+.episode h2{margin:4px 0;font:900 clamp(24px,3vw,40px)/1 var(--display);font-stretch:118%;text-transform:uppercase}
+.episode p{margin:0;color:#a9a49c;font-size:14px;max-width:52ch}
+.episode .btn{background:#efece7;color:#111}
+
+/* shop + faq + footer */
+.embed{margin:0 var(--gut);min-height:380px;border-top:1px solid var(--line)}
+.ss-fallback{display:grid;place-items:center;gap:14px;text-align:center;padding:64px 16px;color:var(--muted)}
+.faq{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:clamp(20px,4vw,64px);padding:48px var(--gut)}
+.faq h2{margin:4px 0 0;font:900 clamp(30px,4.4vw,54px)/.95 var(--display);font-stretch:118%;text-transform:uppercase}
+.acc{border-top:1px solid var(--line)}
+.acc details{border-bottom:1px solid var(--line)}
+.acc summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;padding:13px 0;font:600 12px var(--body);letter-spacing:.1em;text-transform:uppercase}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary:after{content:"+";font-size:18px;line-height:1;transition:transform .3s}
+.acc details[open] summary:after{transform:rotate(45deg)}
+.acc p,.acc ul{margin:0 0 13px;color:var(--muted);font-size:14px}
+.acc a{text-decoration:underline}
+footer.ft{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:28px;padding:44px var(--gut) 24px;border-top:1px solid var(--line)}
+footer.ft h4{margin:0 0 12px;font:600 12px var(--body);letter-spacing:.12em;text-transform:uppercase}
+footer.ft ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:14px;color:var(--muted)}
+footer.ft ul a:hover{color:var(--ink)}
+footer.ft .logo{font-size:clamp(30px,3.4vw,50px);line-height:.88;display:block}
+.fine{font-size:12px;color:var(--muted);margin:0}
+.legal{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:16px var(--gut) 26px;color:var(--muted)}
+
+/* layers */
+.ov{position:fixed;inset:0;background:rgba(10,10,10,.5);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .35s;z-index:60}
+.ov.on{opacity:1;pointer-events:auto}
+.pm{position:fixed;inset:0;z-index:70;display:grid;place-items:center;padding:16px;pointer-events:none}
+.pm .sheet{pointer-events:auto;width:min(980px,100%);max-height:min(92vh,760px);background:var(--bg);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);overflow:hidden;opacity:0;transform:translateY(24px);transition:opacity .4s,transform .5s cubic-bezier(.2,.8,.15,1);visibility:hidden;position:relative}
+.pm.on .sheet{opacity:1;transform:none;visibility:visible}
+.gal{position:relative;background:var(--panel)}
+.gal .main{width:100%;height:100%;object-fit:cover;object-position:50% 25%;transition:opacity .3s}
+.gal .main.dark{object-fit:contain;background:#111;padding:6%}
+.thumbs{position:absolute;left:12px;bottom:12px;display:flex;gap:8px}
+.thumbs button{width:52px;height:64px;border:2px solid transparent;background:#222;overflow:hidden;padding:0}
+.thumbs button[aria-pressed="true"]{border-color:var(--accent)}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+.info{padding:26px 28px;overflow:auto}
+.info h2{margin:6px 0 4px;font:900 clamp(28px,3vw,40px)/.95 var(--display);font-stretch:112%;text-transform:uppercase}
+.price{font:700 19px var(--body);margin:8px 0 18px}.price small{font-weight:400;color:var(--muted);font-size:13px}
+.opt{margin:0 0 16px;border:0;padding:0}
+.opt legend{font:600 12px var(--body);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.cuts{display:flex;flex-wrap:wrap;gap:8px}
+.cuts button{padding:10px 14px;border:1px solid var(--line);font:500 13px var(--body)}
+.cuts button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.add{width:100%;text-align:center;margin:4px 0 10px}
+.x{position:absolute;right:10px;top:10px;width:40px;height:40px;display:grid;place-items:center;border-radius:50%;background:var(--bg);z-index:2}
+.mm{position:fixed;inset:0;z-index:75;background:var(--band);color:var(--bandink);padding:24px var(--gut);display:flex;flex-direction:column;justify-content:space-between;clip-path:inset(0 0 100% 0);transition:clip-path .5s cubic-bezier(.7,0,.2,1);visibility:hidden}
+.mm.on{clip-path:inset(0);visibility:visible}
+.mm nav{display:grid;gap:4px;margin-top:48px}
+.mm nav a{font:900 clamp(40px,12vw,72px)/1 var(--display);font-stretch:118%;text-transform:uppercase}
+.mm .x{position:static;align-self:flex-end;background:#222;color:#fff}
+.toast{position:fixed;left:50%;bottom:22px;z-index:80;transform:translate(-50%,160%);visibility:hidden;background:var(--ink);color:var(--bg);padding:13px 18px;font:500 14px var(--body);transition:transform .45s cubic-bezier(.2,.8,.15,1),visibility .45s;white-space:nowrap}
+.toast.on{transform:translate(-50%,0);visibility:visible}
+
+.rv{transition:opacity .8s,transform .8s cubic-bezier(.2,.7,.2,1)}
+.js .rv{opacity:0;transform:translateY(28px)}
+.js .rv.in{opacity:1;transform:none}
+
+@media (max-width:900px){
+  header.site{grid-template-columns:auto 1fr auto}
+  header.site nav{display:none}
+  .burger{display:grid}
+  .logo{font-size:16px}
+  .hdr-r .hide-m{display:none}
+  .hero{height:600px}
+  .hero .word{top:120px;transform:translateY(var(--py,0px))}
+  .hero .model{height:78%}
+  .hero .tag{display:none}
+  .episode{grid-template-columns:auto minmax(0,1fr)}
+  .episode .btn{grid-column:1/-1;text-align:center}
+  .faq{grid-template-columns:1fr}
+  footer.ft{grid-template-columns:1fr 1fr}
+  footer.ft>div:first-child{grid-column:1/-1}
+  .pm{padding:0;place-items:end stretch}
+  .pm .sheet{grid-template-columns:1fr;max-height:90vh;overflow:auto;border-radius:18px 18px 0 0;transform:translateY(100%);transition:opacity .2s,transform .45s cubic-bezier(.2,.8,.15,1);overscroll-behavior:contain}
+  .pm.on .sheet{transform:translateY(var(--dy,0px))}
+  .pm .sheet:before{content:"";position:sticky;top:8px;display:block;width:44px;height:5px;border-radius:3px;background:rgba(127,127,127,.5);margin:8px auto -13px;z-index:3;grid-column:1/-1}
+  .card .qv{padding:13px;font-size:12px}
+  .chips button{padding:11px 16px}
+  .gal{aspect-ratio:4/5}
+  .arrows{display:none}
+  .card,.endcard{width:70vw}
+  .style{width:80vw}
+  .joke{width:66vw}
+  .rail{gap:12px;scroll-snap-type:x mandatory}
+}
+@media (max-width:400px){header.site{gap:8px;padding-inline:12px}.logo{font-size:14px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.js .rv{opacity:1;transform:none}.js:not(.ready) .hero .word .ch,.js:not(.ready) .hero .model{transform:none;opacity:1}.js:not(.ready) .toon path{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+
+<div class="strip lab"><span id="rot"><span>Winter drop · hoodies &amp; sweatshirts</span></span><span>30-day returns</span></div>
+<header class="site">
+  <button class="burger" type="button" id="burger" aria-label="Open menu"><i></i></button>
+  <nav aria-label="Main"><a href="#shopnow">Winter drop</a><a href="#styles">Styles</a><a href="#memes">Memes</a><a href="#faq">Help</a></nav>
+  <a class="logo" href="#top">Certified Memer</a>
+  <div class="hdr-r"><a class="hide-m" href="#shopnow">Shop</a><a href="#shop" aria-label="Basket and checkout"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 8h14l-1 13H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span>Basket</span></a></div>
+</header>
+
+<section class="hero" id="top" aria-label="Certified Memer">
+  <h1 class="word" id="word" aria-label="Memer"><span class="in" id="wordIn"><span class="ch">M</span><span class="ch">E</span><span class="ch">M</span><span class="ch">E</span><span class="ch">R</span></span></h1>
+  <svg class="toon" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <g class="burst" id="burst"></g>
+    <g class="doodle">
+      <path d="M150 210 q30 -40 60 0 t60 0 t60 0"/><path d="M930 640 q25 -35 50 0 t50 0 t50 0"/>
+      <path d="M1010 230 l18 -42 l18 42 l-46 -26 h56 z"/><path d="M190 620 l14 -32 l14 32 l-36 -20 h44 z"/>
+      <path d="M260 330 c-30 -60 50 -90 70 -40 c15 40 -60 60 -40 10"/>
+    </g>
+  </svg>
+  <div class="model"><img src="kai_cut2.webp" alt="Model wearing the black Strange Time print, seen from behind" fetchpriority="high" width="870" height="1600"></div>
+  <div class="cta"><a class="btn" href="#shopnow">Shop the winter drop</a><a class="ul" href="#memes">Memes</a></div>
+  <div class="tag lab">Winter drop<br>2026</div>
+</section>
+
+<div class="ticker" aria-hidden="true"><div class="tk" id="tk"><span>Hoodie season</span><span>You met me at a very strange time</span><span>Midnight run</span><span>Printed to order</span><span>30-day returns</span></div></div>
+
+<div class="sh" id="shopnow"><div><span class="lab">Winter drop</span><h2>Hoodie season</h2></div><div class="arrows" data-for="prodRail"><button type="button" data-dir="-1" aria-label="Scroll left"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 3 5 8l5 5"/></svg></button><button type="button" data-dir="1" aria-label="Scroll right"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m6 3 5 5-5 5"/></svg></button></div></div>
+<div class="chips" id="chips" role="group" aria-label="Filter by style"><button type="button" aria-pressed="true" data-f="all">All</button><button type="button" aria-pressed="false" data-f="kai">Kai style</button><button type="button" aria-pressed="false" data-f="mira">Mira style</button><button type="button" aria-pressed="false" data-f="kuro">Kuro style</button><button type="button" aria-pressed="false" data-f="meme">Memes</button></div>
+<div class="rail" id="prodRail" data-lenis-prevent></div><div class="prog" aria-hidden="true"><i></i></div>
+
+<div class="sh" id="styles"><div><span class="lab">Three styles</span><h2>Pick your side</h2></div></div>
+<div class="rail" data-lenis-prevent>
+  <a class="style st-kai" href="#shopnow" data-go="kai"><span class="lab">Kai style</span><div><h3>Red &amp; black</h3><p>Gothic letters, marker scribbles, grunge. Loud and tired at the same time.</p></div></a>
+  <a class="style st-mira" href="#shopnow" data-go="mira"><span class="lab">Mira style</span><div><h3>Midnight Japan</h3><p>JDM cars, katakana, lilac and gold. Night drives, no brakes.</p></div></a>
+  <a class="style st-kuro" href="#shopnow" data-go="kuro"><span class="lab">Kuro style · soon</span><div><h3>Black on black</h3><p>Analog horror, tonal prints, one red dot. For people who sit in the dark.</p></div></a>
+</div>
+
+<section class="meme" id="memes">
+  <div class="sh"><div><span class="lab" style="color:var(--accent)">The meme department</span><h2>Jokes you can wear</h2></div><div class="arrows" data-for="rail"><button type="button" data-dir="-1" aria-label="Scroll left"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 3 5 8l5 5"/></svg></button><button type="button" data-dir="1" aria-label="Scroll right"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m6 3 5 5-5 5"/></svg></button></div></div>
+  <div class="rail" id="rail" data-lenis-prevent></div><div class="prog" aria-hidden="true"><i></i></div>
+</section>
+
+<section class="episode" id="episode">
+  <div class="vid"><video id="epv" data-src="a1.mp4" poster="a1_frame.webp" muted loop playsinline preload="none" aria-label="Opening of episode 01"></video></div>
+  <div><span class="lab" style="color:var(--accent)">Episode 01 · on TikTok &amp; Instagram</span><h2>Who pays?</h2><p>Two customers, one late-night supermarket, the last red box on the shelf.</p></div>
+  <a class="btn" href="#shopnow">Shop the drop</a>
+</section>
+
+<section id="shop">
+  <div class="sh"><div><span class="lab">Shop everything</span><h2>The whole shelf</h2></div><span class="lab">Basket &amp; checkout by Spreadshop</span></div>
+  <div class="embed"><div id="ssShop"><div class="ss-fallback"><p>The shop loads here.</p><a class="btn" href="https://certified-memer.myspreadshop.co.uk/all" target="_blank" rel="noopener">Open the shop ↗</a></div></div></div>
+</section>
+
+<section class="faq" id="faq"><div><span class="lab">Help</span><h2>Good questions</h2></div><div class="acc">
+<details><summary>How is it made?</summary><p>Every piece is printed when you order it, by our print partner Spreadshirt. Nothing sits in a warehouse.</p></details>
+<details><summary>How long does delivery take?</summary><p>It depends on your country. Spreadshirt lists it here: <a href="https://service.spreadshirt.com/hc/en-gb/articles/115000993925?shop_name=certified-memer&shop_id=1582909&platform=eu" target="_blank" rel="noopener">delivery costs and times</a>.</p></details>
+<details><summary>Can I return it?</summary><p>Yes, within 30 days. Details: <a href="https://service.spreadshirt.com/hc/en-gb/articles/115000984869?shop_name=certified-memer&shop_id=1582909&platform=eu" target="_blank" rel="noopener">returns</a>.</p></details>
+<details><summary>Which size should I pick?</summary><p>Hoodies and sweatshirts run regular. For the boxy, oversized look, take one size up. The exact size chart is on each product page in the shop.</p></details>
+<details><summary>How do I pay?</summary><p>Checkout runs on Spreadshop, which shows the payment methods available in your country.</p></details>
+<details><summary>How do I wash it?</summary><p>Inside out, 30°C, no tumble dryer, never iron over the print.</p></details>
+</div></section>
+
+<footer class="ft">
+  <div><span class="logo">Certified<br>Memer</span><p class="fine" style="margin-top:14px;max-width:34ch">Merch from a small horror-comedy. Printed on demand.</p></div>
+  <div><h4>Shop</h4><ul><li><a href="#shopnow">Winter drop</a></li><li><a href="#styles">Styles</a></li><li><a href="#memes">Memes</a></li><li><a href="https://certified-memer.myspreadshop.co.uk/all" target="_blank" rel="noopener">All products ↗</a></li></ul></div>
+  <div><h4>Help</h4><ul><li><a href="#faq">FAQ</a></li><li><a href="https://service.spreadshirt.com/hc/en-gb/articles/115000993925?shop_name=certified-memer&shop_id=1582909&platform=eu" target="_blank" rel="noopener">Delivery</a></li><li><a href="https://service.spreadshirt.com/hc/en-gb/articles/115000984869?shop_name=certified-memer&shop_id=1582909&platform=eu" target="_blank" rel="noopener">Returns</a></li><li><a href="https://service.spreadshirt.com/hc/en-gb?shop_name=certified-memer&shop_id=1582909&platform=eu" target="_blank" rel="noopener">Help centre</a></li></ul></div>
+  <div><h4>Legal</h4><ul><li><a href="https://certified-memer.myspreadshop.co.uk/imprint" target="_blank" rel="noopener">Imprint</a></li><li><a href="https://service.spreadshirt.com/hc/en-gb/articles/115000978409?shop_name=certified-memer&shop_id=1582909&platform=eu" target="_blank" rel="noopener">Privacy</a></li><li><a href="https://service.spreadshirt.com/hc/en-gb/articles/115000991325?shop_name=certified-memer&shop_id=1582909&platform=eu" target="_blank" rel="noopener">Terms</a></li></ul></div>
+</footer>
+<div class="legal lab"><span>© 2026 Certified Memer</span><span>Prices in GBP</span></div>
+
+<div class="ov" id="ov"></div>
+<div class="pm" id="pm" role="dialog" aria-modal="true" aria-labelledby="pmT" aria-hidden="true">
+  <div class="sheet">
+    <button class="x" type="button" data-close aria-label="Close"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3l10 10M13 3 3 13"/></svg></button>
+    <div class="gal"><img class="main" id="pmImg" src="kai_model_s.webp" alt=""><div class="thumbs" id="pmTh"></div></div>
+    <div class="info">
+      <span class="lab" id="pmLab"></span>
+      <h2 id="pmT"></h2>
+      <div class="price" id="pmPrice"></div>
+      <fieldset class="opt" id="pmCutF"><legend>Available as</legend><div class="cuts" id="pmCut"></div></fieldset>
+      <a class="btn add" id="pmAdd" href="#shop">Buy in the shop</a>
+      <p class="fine" id="pmNote" style="margin-bottom:12px">Pick size and colour in the shop. Basket and payment run on Spreadshop.</p>
+      <div class="acc">
+        <details open><summary>Details</summary><p id="pmDesc"></p></details>
+        <details><summary>Fabric &amp; care</summary><ul><li>Organic cotton hoodie and sweatshirt, cotton tee</li><li>Wash inside out at 30°C, do not iron the print</li></ul></details>
+        <details><summary>Delivery &amp; returns</summary><p>Printed on demand and shipped by Spreadshirt. 30-day returns.</p></details>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mm" id="mm" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
+  <button class="x" type="button" data-close aria-label="Close menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3l10 10M13 3 3 13"/></svg></button>
+  <nav><a href="#shopnow">Winter drop</a><a href="#styles">Styles</a><a href="#memes">Memes</a><a href="#shop">Shop all</a><a href="#faq">Help</a></nav>
+  <span class="lab" style="color:#9a968f">Printed on demand · 30-day returns</span>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+document.documentElement.classList.add('js');
+(function(){
+  var root=document.documentElement,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var SHOP='https://certified-memer.myspreadshop.co.uk';
+  /* one list drives the rail and the product sheet */
+  var CUTS=[{id:'hood',n:'Organic Hoodie',p:39.99},{id:'sweat',n:'Sweatshirt',p:37.49},{id:'tee',n:'Classic Tee',p:23.49}];
+  var P=[
+    {k:'kai-strange',style:'kai',n:'Strange Time',lab:'Kai style · back print',d:'Red gothic letters, a hand-circled “strange” and a margin note: still is. Small red mark on the chest.',img:['kai_model_s.webp','kai_print.webp'],live:true,badge:'New'},
+    {k:'mira-run',style:'mira',n:'Midnight Run',lab:'Mira style · back print',d:'A low coupe, a red charm on the mirror and the sun going down over the water. Lilac and gold ink, gold star on the chest.',img:['mira_model_s.webp','mira_print.webp'],live:true,badge:'New'},
+    {k:'lotd',style:'meme',n:'Lord of the Drinks',lab:'Meme department',d:'Beer emblem parody. In the shop on tees, hoodies and more.',img:['https://image.spreadshirtmedia.net/image-server/v1/products/T20A2PA8410PT17X132Y10D360223760W12522H18783/views/1/lord-of-the-drinks.png?width=700&height=875&appearanceId=2&backgroundColor=ebe9e5'],live:true,url:SHOP+'/lord+of+the+drinks+beer+emblem-A324417eeace6d274?sellable=rio49dpk5uno-20&appearance=2'},
+    {k:'kuro',style:'kuro',n:'Kuro',lab:'Kuro style · coming soon',d:'Black on black, analog horror, one red dot. Dropping later this winter.',img:['kuro_model_s.webp','kuro_print.webp'],live:false,badge:'Soon'}
+  ];
+  function gbp(v){return '£'+v.toFixed(2);}
+  var rail=document.getElementById('prodRail'),h='';
+  P.forEach(function(p){
+    h+='<article class="card" data-style="'+p.style+'"><div class="im"><img src="'+p.img[0]+'" alt="'+p.n+' print" loading="lazy" decoding="async" onerror="this.outerHTML=\'<div class=jfall style=height:100%;display:grid;place-items:center>'+p.n+'</div>\'">'+(p.img[1]?'<img class="pr" src="'+p.img[1]+'" alt="" loading="lazy" decoding="async">':'')+(p.badge?'<span class="badge lab'+(p.badge==='New'?' red':'')+'">'+p.badge+'</span>':'')+'<button class="qv" type="button" data-open="'+p.k+'">'+(p.live?'Quick view':'Notify me')+'</button></div><h3>'+p.n+'</h3><div class="meta"><span>'+(p.live?'<b>Hoodie £39.99</b> · Tee £23.49':'Price at launch')+'</span><i class="dot" title="Black"></i></div></article>';
+  });
+  h+='<a class="endcard" href="#shop"><span class="lab">Everything else</span><b>The whole shelf</b><span class="lab">Open the shop ↓</span></a>';
+  rail.innerHTML=h;
+  /* filter chips */
+  var chips=[].slice.call(document.querySelectorAll('#chips button'));
+  function filt(f){chips.forEach(function(c){c.setAttribute('aria-pressed',c.dataset.f===f);});[].forEach.call(rail.querySelectorAll('.card'),function(c){c.hidden=!(f==='all'||c.dataset.style===f);});rail.scrollTo({left:0,behavior:reduce?'auto':'smooth'});if(rail.__prog)setTimeout(rail.__prog,400);}
+  chips.forEach(function(c){c.addEventListener('click',function(){filt(c.dataset.f);});});
+  document.querySelectorAll('[data-go]').forEach(function(a){a.addEventListener('click',function(){filt(a.dataset.go);});});
+  /* arrows */
+  document.querySelectorAll('.arrows').forEach(function(w){var r=document.getElementById(w.dataset.for);w.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){var to=r.scrollLeft+(+b.dataset.dir)*r.clientWidth*0.8;if(reduce)r.scrollLeft=to;else window.__glide(r,to,650);});});});
+  /* rails: soft momentum drag (mouse), eased arrows, progress bar */
+  function ease(t){return 1-Math.pow(1-t,3);}
+  function glide(r,to,ms){var from=r.scrollLeft,t0=performance.now();to=Math.max(0,Math.min(to,r.scrollWidth-r.clientWidth));r.style.scrollSnapType='none';
+    (function step(now){var k=Math.min(1,(now-t0)/ms);r.scrollLeft=from+(to-from)*ease(k);if(k<1)requestAnimationFrame(step);else r.style.scrollSnapType='';})(t0);}
+  function nearest(r,x){var best=0,bd=1e9,pad=parseFloat(getComputedStyle(r).paddingLeft)||0;[].forEach.call(r.children,function(c){if(c.hidden)return;var d=Math.abs(c.offsetLeft-pad-x);if(d<bd){bd=d;best=c.offsetLeft-pad;}});return best;}
+  window.__glide=glide;
+  document.querySelectorAll('.rail').forEach(function(r){
+    var down=false,sx=0,sl=0,lx=0,lt=0,v=0,moved=false;
+    r.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse'||e.button!==0)return;down=true;moved=false;sx=lx=e.clientX;lt=performance.now();sl=r.scrollLeft;v=0;});
+    addEventListener('pointermove',function(e){if(!down)return;var dx=e.clientX-sx;if(!moved&&Math.abs(dx)>5){moved=true;r.classList.add('dragging');}
+      if(moved){r.scrollLeft=sl-dx;var now=performance.now(),dt=now-lt||16;v=0.8*v+0.2*((lx-e.clientX)/dt);lx=e.clientX;lt=now;}});
+    addEventListener('pointerup',function(){if(!down)return;down=false;if(!moved)return;
+      var target=r.scrollLeft+v*420;glide(r,nearest(r,target),Math.min(900,380+Math.abs(v)*260));setTimeout(function(){r.classList.remove('dragging');},30);});
+    r.addEventListener('click',function(e){if(moved){e.preventDefault();e.stopPropagation();moved=false;}},true);
+    /* vertical mouse wheel scrolls the page, horizontal swipe scrolls the rail */
+    var bar=r.nextElementSibling&&r.nextElementSibling.classList.contains('prog')?r.nextElementSibling.firstElementChild:null;
+    function prog(){if(!bar)return;var max=r.scrollWidth-r.clientWidth,f=max>0?r.scrollLeft/max:0,w=Math.max(.15,r.clientWidth/r.scrollWidth);bar.style.width=(w*100)+'%';bar.style.transform='translateX('+(f*(1/w-1)*100)+'%)';}
+    r.addEventListener('scroll',prog,{passive:true});addEventListener('resize',prog);setTimeout(prog,50);r.__prog=prog;
+  });
+  /* memes */
+  var JOKES=[{t:'Lord of the Drinks',p:'From £23.49',u:P[2].url,i:'https://image.spreadshirtmedia.net/image-server/v1/products/T5A2PA4739PT17X86Y10D360223760W17828H26743/views/1/lord-of-the-drinks.png?width=700&height=700&appearanceId=653&backgroundColor=ebe9e5'}];
+  var jr='';JOKES.forEach(function(j){jr+='<a class="joke" href="'+j.u+'" target="_blank" rel="noopener"><div class="ji"><img src="'+j.i+'" alt="'+j.t+'" loading="lazy" onerror="this.outerHTML=\'<div class=jfall>'+j.t+'</div>\'"></div><div class="jt"><h3>'+j.t+'</h3><span>'+j.p+' ↗</span></div></a>';});
+  jr+='<a class="joke next" href="#shop"><span class="lab">Next joke</span><b>New one every week.</b><span class="lab">Browse the shop ↓</span></a>';
+  document.getElementById('rail').innerHTML=jr;
+
+  /* hero: fit word, comic burst, intro */
+  var hero=document.querySelector('.hero'),word=document.getElementById('word'),wIn=document.getElementById('wordIn');
+  function fit(){word.style.fontSize='100px';var w=wIn.getBoundingClientRect().width||1;word.style.fontSize=(100*hero.clientWidth*0.95/w)+'px';}
+  fit();addEventListener('resize',fit);
+  var b='';for(var k=0;k<16;k++){var a=(-90+k*22.5+(k%2?6:-4))*Math.PI/180,r1=k%2?330:300,r2=r1+(k%3?150:210);b+='<path d="M'+(600+r1*Math.cos(a)*1.25).toFixed(0)+' '+(430+r1*Math.sin(a)).toFixed(0)+' L'+(600+r2*Math.cos(a)*1.25).toFixed(0)+' '+(430+r2*Math.sin(a)).toFixed(0)+'"/>';}
+  document.getElementById('burst').innerHTML=b;
+  var started=false;function start(){if(started)return;started=true;[].forEach.call(document.querySelectorAll('.hero .word .ch'),function(c,i){c.style.transitionDelay=(i*0.06)+'s';});requestAnimationFrame(function(){root.classList.add('ready');});}
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){fit();start();});setTimeout(start,1200);
+
+  /* layers (declared before anchors use them) */
+  var ov=document.getElementById('ov'),openEl=null,lastFocus=null,lenis=null;
+  function openLayer(el){closeLayer(true);lastFocus=document.activeElement;openEl=el;el.classList.add('on');el.setAttribute('aria-hidden','false');ov.classList.add('on');if(lenis)lenis.stop();document.body.style.overflow='hidden';var f=el.querySelector('[data-close]');if(f)setTimeout(function(){try{f.focus({preventScroll:true,focusVisible:false});}catch(e){f.focus();}},60);}
+  function closeLayer(silent){if(!openEl)return;openEl.classList.remove('on');openEl.setAttribute('aria-hidden','true');openEl=null;ov.classList.remove('on');if(lenis)lenis.start();document.body.style.overflow='';if(!silent&&lastFocus)lastFocus.focus();}
+  ov.addEventListener('click',function(){closeLayer();});
+  document.querySelectorAll('[data-close]').forEach(function(x){x.addEventListener('click',function(){closeLayer();});});
+  addEventListener('keydown',function(e){if(e.key==='Escape')closeLayer();});
+  document.getElementById('burger').addEventListener('click',function(){openLayer(document.getElementById('mm'));});
+
+  /* smooth scroll */
+  if(!reduce&&window.Lenis){try{lenis=new Lenis({lerp:0.09});root.style.scrollBehavior='auto';}catch(e){}}
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href');if(id.length<2)return;var t=id==='#top'?0:document.querySelector(id);if(t===null)return;closeLayer(true);if(lenis){e.preventDefault();lenis.scrollTo(t,{offset:id==='#top'?0:-60,duration:1.2});}});});
+
+  /* frame loop: ticker, header, hero parallax */
+  var tk=document.getElementById('tk');tk.innerHTML+=tk.innerHTML;var tx=0,lastY=scrollY,vel=0,dir=1,hdr=document.querySelector('header.site');
+  function frame(t){if(lenis)lenis.raf(t);var y=scrollY,dy=y-lastY;lastY=y;vel+=(dy-vel)*0.1;if(Math.abs(dy)>1)dir=dy>0?1:-1;
+    if(!reduce){tx-=(0.5+Math.min(Math.abs(vel)*0.3,12))*dir;var half=tk.scrollWidth/2;if(tx<=-half)tx+=half;if(tx>0)tx-=half;tk.style.transform='translate3d('+tx+'px,0,0)';if(y<900)word.style.setProperty('--py',(y*0.25)+'px');}
+    if(y>400&&dy>2)hdr.classList.add('hide');else if(dy<-2||y<400)hdr.classList.remove('hide');
+    requestAnimationFrame(frame);}
+  requestAnimationFrame(frame);
+
+  /* product sheet */
+  var cur=null,cut='hood',pmImg=document.getElementById('pmImg');
+  function upd(){var c=CUTS.filter(function(x){return x.id===cut;})[0],a=document.getElementById('pmAdd');
+    document.getElementById('pmPrice').innerHTML=cur.live?gbp(c.p)+' <small>· incl. VAT, plus delivery</small>':'Coming soon';
+    a.textContent=cur.live?'Buy '+c.n.toLowerCase()+' in the shop':'Notify me at launch';
+    a.href=cur.url||'#shop';if(cur.url){a.target='_blank';a.rel='noopener';}else{a.removeAttribute('target');}}
+  function openP(k){cur=P.filter(function(p){return p.k===k;})[0];cut='hood';
+    document.getElementById('pmT').textContent=cur.n;document.getElementById('pmLab').textContent=cur.lab;document.getElementById('pmDesc').textContent=cur.d;
+    pmImg.src=cur.img[0];pmImg.alt=cur.n;pmImg.classList.remove('dark');
+    var th=document.getElementById('pmTh');th.innerHTML='';if(cur.img.length>1)cur.img.forEach(function(src,i){var bt=document.createElement('button');bt.type='button';bt.setAttribute('aria-pressed',i===0);bt.setAttribute('aria-label',i?'Show print':'Show on model');bt.innerHTML='<img src="'+src+'" alt="">';bt.addEventListener('click',function(){[].forEach.call(th.children,function(x){x.setAttribute('aria-pressed','false');});bt.setAttribute('aria-pressed','true');pmImg.src=src;pmImg.classList.toggle('dark',i===1);});th.appendChild(bt);});
+    var w=document.getElementById('pmCut');w.innerHTML='';CUTS.forEach(function(c){var bt=document.createElement('button');bt.type='button';bt.textContent=c.n;bt.setAttribute('aria-pressed',c.id===cut);bt.addEventListener('click',function(){[].forEach.call(w.children,function(x){x.setAttribute('aria-pressed','false');});bt.setAttribute('aria-pressed','true');cut=c.id;upd();});w.appendChild(bt);});
+    document.getElementById('pmCutF').style.display=cur.live?'':'none';document.getElementById('pmNote').style.display=cur.live&&!cur.url?'':'none';
+    upd();openLayer(document.getElementById('pm'));}
+  rail.addEventListener('click',function(e){var bt=e.target.closest('[data-open]'),im=e.target.closest('.im');if(bt)openP(bt.dataset.open);else if(im)openP(im.querySelector('[data-open]').dataset.open);});
+  (function(){var sh=document.querySelector('.pm .sheet'),sy=null,dy=0;
+    sh.addEventListener('touchstart',function(e){if(sh.scrollTop>0){sy=null;return;}sy=e.touches[0].clientY;dy=0;sh.style.transition='none';},{passive:true});
+    sh.addEventListener('touchmove',function(e){if(sy===null)return;dy=Math.max(0,e.touches[0].clientY-sy);document.getElementById('pm').style.setProperty('--dy',dy+'px');},{passive:true});
+    sh.addEventListener('touchend',function(){if(sy===null)return;sh.style.transition='';document.getElementById('pm').style.setProperty('--dy','0px');if(dy>110)closeLayer();sy=null;});
+  })();
+  var toast=document.getElementById('toast'),tt;function showToast(m){toast.textContent=m;toast.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('on');},3000);}
+  document.getElementById('pmAdd').addEventListener('click',function(e){if(!cur.live){e.preventDefault();closeLayer();showToast('Saved. Kuro drops later this winter.');return;}if(cur.url){closeLayer(true);return;}e.preventDefault();closeLayer(true);var t=document.getElementById('shop');if(lenis)lenis.scrollTo(t,{offset:-60});else t.scrollIntoView({behavior:'smooth'});});
+
+  /* strip rotation */
+  var msgs=['Winter drop · hoodies & sweatshirts','Printed on demand','Kuro · coming soon'],ri=0,rot=document.querySelector('#rot span');
+  if(!reduce)setInterval(function(){rot.style.opacity=0;setTimeout(function(){ri=(ri+1)%msgs.length;rot.textContent=msgs[ri];rot.style.opacity=1;},450);},3500);
+
+  /* episode video: load only when visible, skip on data-saver / slow networks */
+  var epv=document.getElementById('epv'),cn=navigator.connection||{},slow=cn.saveData||/2g|3g/.test(cn.effectiveType||'');
+  if('IntersectionObserver' in window&&!slow){new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting){epv.src=epv.dataset.src;if(!reduce){var pr=epv.play();if(pr&&pr.catch)pr.catch(function(){});}o.disconnect();}});},{rootMargin:'200px'}).observe(epv);}
+
+  /* reveal */
+  var els=document.querySelectorAll('.sh,.rail,.episode,.faq');els.forEach(function(e){e.classList.add('rv');});
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.05});els.forEach(function(e){io.observe(e);});}else els.forEach(function(e){e.classList.add('in');});
+})();
+</script>
+<script>
+var spread_shop_config={shopName:'certified-memer',locale:'en_GB',prefix:'https://certified-memer.myspreadshop.co.uk',baseId:'ssShop',updateMetadata:false,swipeMenu:true};
+</script>
+<script src="https://certified-memer.myspreadshop.co.uk/js/shopclient.nocache.js" async></script>
+
+</body>
+</html>
