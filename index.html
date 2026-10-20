@@ -5,12 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#111111">
 <meta name="description" content="Certified Memer: hoodies, sweatshirts and tees from a small horror-comedy. Printed on demand.">
-<title>Certified Memer</title>
+<title>Certified Memer — hoodies &amp; tees from a small horror-comedy</title>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Certified Memer">
+<meta property="og:title" content="Certified Memer — winter drop">
+<meta property="og:description" content="Hoodies, sweatshirts and tees in three styles: red-and-black Kai, midnight-Japan Mira and black-on-black Kuro. Printed on demand.">
+<meta property="og:image" content="kai_model_s.webp">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Certified Memer","url":"https://certified-memer.myspreadshop.co.uk"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="preload" as="image" href="kai_cut2.webp" fetchpriority="high">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 fill=%22%23111%22/%3E%3Ctext x=%2216%22 y=%2223%22 font-size=%2218%22 text-anchor=%22middle%22 fill=%22%23f4d21f%22 font-family=%22Arial Black%22%3ECM%3C/text%3E%3C/svg%3E">
 <style>
 /* Layout: compact store. Short hero with wordmark, red ticker, then horizontal product rail with filter chips, a 3-card style rail, the yellow meme rail, a slim episode band, the embedded Spreadshop, FAQ and footer. */
 :root{
@@ -164,6 +169,12 @@ footer.ft .logo{font-size:clamp(30px,3.4vw,50px);line-height:.88;display:block}
 .fine{font-size:12px;color:var(--muted);margin:0}
 .legal{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:16px var(--gut) 26px;color:var(--muted)}
 
+.ck{position:fixed;left:16px;right:16px;bottom:16px;z-index:85;max-width:520px;background:var(--bg);color:var(--ink);border:1px solid var(--line);box-shadow:0 18px 50px rgba(0,0,0,.25);padding:18px;display:grid;gap:12px}
+.ck[hidden]{display:none}.ck p{margin:0;font-size:14px}.ck div{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.mbar{display:none}
+@media (max-width:900px){.mbar{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--bg);border-top:1px solid var(--line);padding:6px 6px calc(6px + env(safe-area-inset-bottom));transition:transform .35s}
+.mbar a{text-align:center;padding:10px 4px;font:600 11px var(--body);letter-spacing:.1em;text-transform:uppercase}
+.mbar.hide{transform:translateY(110%)} body{padding-bottom:58px} .ck{bottom:74px}}
 /* layers */
 .ov{position:fixed;inset:0;background:rgba(10,10,10,.5);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .35s;z-index:60}
 .ov.on{opacity:1;pointer-events:auto}
@@ -230,8 +241,6 @@ footer.ft .logo{font-size:clamp(30px,3.4vw,50px);line-height:.88;display:block}
 @media (max-width:400px){header.site{gap:8px;padding-inline:12px}.logo{font-size:14px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.js .rv{opacity:1;transform:none}.js:not(.ready) .hero .word .ch,.js:not(.ready) .hero .model{transform:none;opacity:1}.js:not(.ready) .toon path{stroke-dashoffset:0}}
 </style>
-</head>
-<body>
 
 <div class="strip lab"><span id="rot"><span>Winter drop · hoodies &amp; sweatshirts</span></span><span>30-day returns</span></div>
 <header class="site">
@@ -266,7 +275,7 @@ footer.ft .logo{font-size:clamp(30px,3.4vw,50px);line-height:.88;display:block}
 <div class="rail" data-lenis-prevent>
   <a class="style st-kai" href="#shopnow" data-go="kai"><span class="lab">Kai style</span><div><h3>Red &amp; black</h3><p>Gothic letters, marker scribbles, grunge. Loud and tired at the same time.</p></div></a>
   <a class="style st-mira" href="#shopnow" data-go="mira"><span class="lab">Mira style</span><div><h3>Midnight Japan</h3><p>JDM cars, katakana, lilac and gold. Night drives, no brakes.</p></div></a>
-  <a class="style st-kuro" href="#shopnow" data-go="kuro"><span class="lab">Kuro style · soon</span><div><h3>Black on black</h3><p>Analog horror, tonal prints, one red dot. For people who sit in the dark.</p></div></a>
+  <a class="style st-kuro" href="#shopnow" data-go="kuro"><span class="lab">Kuro style · new</span><div><h3>Black on black</h3><p>Analog horror, tonal prints, one red dot. For people who sit in the dark.</p></div></a>
 </div>
 
 <section class="meme" id="memes">
@@ -291,6 +300,8 @@ footer.ft .logo{font-size:clamp(30px,3.4vw,50px);line-height:.88;display:block}
 <details><summary>Can I return it?</summary><p>Yes, within 30 days. Details: <a href="https://service.spreadshirt.com/hc/en-gb/articles/115000984869?shop_name=certified-memer&shop_id=1582909&platform=eu" target="_blank" rel="noopener">returns</a>.</p></details>
 <details><summary>Which size should I pick?</summary><p>Hoodies and sweatshirts run regular. For the boxy, oversized look, take one size up. The exact size chart is on each product page in the shop.</p></details>
 <details><summary>How do I pay?</summary><p>Checkout runs on Spreadshop, which shows the payment methods available in your country.</p></details>
+<details><summary>Where do you ship?</summary><p>Spreadshirt ships to the UK, the EU and many other countries. Your country and delivery cost show up at checkout.</p></details>
+<details><summary>Something wrong with my order?</summary><p>Spreadshirt prints and ships every order, so their team handles problems fastest: <a href="https://service.spreadshirt.com/hc/en-gb?shop_name=certified-memer&shop_id=1582909&platform=eu" target="_blank" rel="noopener">order help</a>.</p></details>
 <details><summary>How do I wash it?</summary><p>Inside out, 30°C, no tumble dryer, never iron over the print.</p></details>
 </div></section>
 
@@ -298,9 +309,9 @@ footer.ft .logo{font-size:clamp(30px,3.4vw,50px);line-height:.88;display:block}
   <div><span class="logo">Certified<br>Memer</span><p class="fine" style="margin-top:14px;max-width:34ch">Merch from a small horror-comedy. Printed on demand.</p></div>
   <div><h4>Shop</h4><ul><li><a href="#shopnow">Winter drop</a></li><li><a href="#styles">Styles</a></li><li><a href="#memes">Memes</a></li><li><a href="https://certified-memer.myspreadshop.co.uk/all" target="_blank" rel="noopener">All products ↗</a></li></ul></div>
   <div><h4>Help</h4><ul><li><a href="#faq">FAQ</a></li><li><a href="https://service.spreadshirt.com/hc/en-gb/articles/115000993925?shop_name=certified-memer&shop_id=1582909&platform=eu" target="_blank" rel="noopener">Delivery</a></li><li><a href="https://service.spreadshirt.com/hc/en-gb/articles/115000984869?shop_name=certified-memer&shop_id=1582909&platform=eu" target="_blank" rel="noopener">Returns</a></li><li><a href="https://service.spreadshirt.com/hc/en-gb?shop_name=certified-memer&shop_id=1582909&platform=eu" target="_blank" rel="noopener">Help centre</a></li></ul></div>
-  <div><h4>Legal</h4><ul><li><a href="https://certified-memer.myspreadshop.co.uk/imprint" target="_blank" rel="noopener">Imprint</a></li><li><a href="https://service.spreadshirt.com/hc/en-gb/articles/115000978409?shop_name=certified-memer&shop_id=1582909&platform=eu" target="_blank" rel="noopener">Privacy</a></li><li><a href="https://service.spreadshirt.com/hc/en-gb/articles/115000991325?shop_name=certified-memer&shop_id=1582909&platform=eu" target="_blank" rel="noopener">Terms</a></li></ul></div>
+  <div><h4>Contact</h4><ul id="social"></ul><h4 style="margin-top:22px">Legal</h4><ul><li><a href="https://certified-memer.myspreadshop.co.uk/imprint" target="_blank" rel="noopener">Imprint</a></li><li><a href="https://service.spreadshirt.com/hc/en-gb/articles/115000978409?shop_name=certified-memer&shop_id=1582909&platform=eu" target="_blank" rel="noopener">Privacy</a></li><li><a href="https://service.spreadshirt.com/hc/en-gb/articles/115000991325?shop_name=certified-memer&shop_id=1582909&platform=eu" target="_blank" rel="noopener">Terms</a></li></ul></div>
 </footer>
-<div class="legal lab"><span>© 2026 Certified Memer</span><span>Prices in GBP</span></div>
+<div class="legal lab"><span>© 2026 Certified Memer</span><span>Prices in GBP · orders, payment and delivery handled by Spreadshirt</span></div>
 
 <div class="ov" id="ov"></div>
 <div class="pm" id="pm" role="dialog" aria-modal="true" aria-labelledby="pmT" aria-hidden="true">
@@ -328,6 +339,8 @@ footer.ft .logo{font-size:clamp(30px,3.4vw,50px);line-height:.88;display:block}
   <span class="lab" style="color:#9a968f">Printed on demand · 30-day returns</span>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="ck" id="ck" role="dialog" aria-label="Cookies" hidden><p>The shop and basket run on Spreadshop, which uses cookies. Load it here, or open the shop on Spreadshop instead.</p><div><button class="btn" type="button" id="ckYes">Load the shop</button><a class="ul" href="https://certified-memer.myspreadshop.co.uk/all" target="_blank" rel="noopener" id="ckNo">Open on Spreadshop ↗</a></div></div>
+<nav class="mbar" aria-label="Quick links"><a href="#shopnow">Shop</a><a href="#styles">Styles</a><a href="#memes">Memes</a><a href="#shop">Basket</a></nav>
 
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
@@ -335,18 +348,26 @@ document.documentElement.classList.add('js');
 (function(){
   var root=document.documentElement,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   var SHOP='https://certified-memer.myspreadshop.co.uk';
+  /* fill these in when the accounts exist; empty values stay hidden */
+  var SOCIAL=window.CM_SOCIAL={tiktok:'',instagram:'',email:''};
+  (function(){var w=document.getElementById('social');if(!w)return;var h='';
+    if(SOCIAL.tiktok)h+='<li><a href="'+SOCIAL.tiktok+'" target="_blank" rel="noopener">TikTok ↗</a></li>';
+    if(SOCIAL.instagram)h+='<li><a href="'+SOCIAL.instagram+'" target="_blank" rel="noopener">Instagram ↗</a></li>';
+    if(SOCIAL.email)h+='<li><a href="mailto:'+SOCIAL.email+'">'+SOCIAL.email+'</a></li>';
+    h+='<li><a href="https://service.spreadshirt.com/hc/en-gb?shop_name=certified-memer&shop_id=1582909&platform=eu" target="_blank" rel="noopener">Order help (Spreadshirt) ↗</a></li>';
+    w.innerHTML=h;})();
   /* one list drives the rail and the product sheet */
   var CUTS=[{id:'hood',n:'Organic Hoodie',p:39.99},{id:'sweat',n:'Sweatshirt',p:37.49},{id:'tee',n:'Classic Tee',p:23.49}];
   var P=[
-    {k:'kai-strange',style:'kai',n:'Strange Time',lab:'Kai style · back print',d:'Red gothic letters, a hand-circled “strange” and a margin note: still is. Small red mark on the chest.',img:['kai_model_s.webp','kai_print.webp'],live:true,badge:'New'},
-    {k:'mira-run',style:'mira',n:'Midnight Run',lab:'Mira style · back print',d:'A low coupe, a red charm on the mirror and the sun going down over the water. Lilac and gold ink, gold star on the chest.',img:['mira_model_s.webp','mira_print.webp'],live:true,badge:'New'},
+    {k:'kai-villain',style:'kai',n:'Villain Era',lab:'Kai style · back print',d:'Red gothic blackletter on black: you caught me in my villain era. It has been a while.',img:['https://image.spreadshirtmedia.net/image-server/v1/products/DPT444A2DPV2D29758683359463X7Y583W3401H2612/views/2/villain.png?width=700&height=700&appearanceId=1269&backgroundColor=ebe9e5','kai_print.webp'],live:true,badge:'New',url:SHOP+'/you+caught+me+in+my+villain+era-A32695747889fb687'},
+    {k:'mira-night',style:'mira',n:'Night Drive Club',lab:'Mira style · back print',d:'Gold kanji 夜行 (night drive) over a checkered line. No destination, full tank.',img:['https://image.spreadshirtmedia.net/image-server/v1/products/DPT20A2DPV2D29758708997637X0Y401W3500H1727/views/2/night-drive.png?width=700&height=700&appearanceId=2&backgroundColor=ebe9e5','mira_print.webp'],live:true,badge:'New',url:SHOP+'/night+drive+club+no+destination+full+tank-A326954156bb9b778'},
     {k:'lotd',style:'meme',n:'Lord of the Drinks',lab:'Meme department',d:'Beer emblem parody. In the shop on tees, hoodies and more.',img:['https://image.spreadshirtmedia.net/image-server/v1/products/T20A2PA8410PT17X132Y10D360223760W12522H18783/views/1/lord-of-the-drinks.png?width=700&height=875&appearanceId=2&backgroundColor=ebe9e5'],live:true,url:SHOP+'/lord+of+the+drinks+beer+emblem-A324417eeace6d274?sellable=rio49dpk5uno-20&appearance=2'},
-    {k:'kuro',style:'kuro',n:'Kuro',lab:'Kuro style · coming soon',d:'Black on black, analog horror, one red dot. Dropping later this winter.',img:['kuro_model_s.webp','kuro_print.webp'],live:false,badge:'Soon'}
+    {k:'kuro',style:'kuro',n:'404 Mood Not Found',lab:'Kuro style · back print',d:'Grey on black, quiet and a little broken: 404 mood not found. Please try again never.',img:['https://image.spreadshirtmedia.net/image-server/v1/products/DPT3492A2DPV2D29758611533103X3Y500W2801H1332/views/2/404.png?width=700&height=700&appearanceId=240&backgroundColor=ebe9e5','kuro_print.webp'],live:true,badge:'New',url:SHOP+'/404+mood+not+found+hoodie-A3269541481281252'}
   ];
   function gbp(v){return '£'+v.toFixed(2);}
   var rail=document.getElementById('prodRail'),h='';
   P.forEach(function(p){
-    h+='<article class="card" data-style="'+p.style+'"><div class="im"><img src="'+p.img[0]+'" alt="'+p.n+' print" loading="lazy" decoding="async" onerror="this.outerHTML=\'<div class=jfall style=height:100%;display:grid;place-items:center>'+p.n+'</div>\'">'+(p.img[1]?'<img class="pr" src="'+p.img[1]+'" alt="" loading="lazy" decoding="async">':'')+(p.badge?'<span class="badge lab'+(p.badge==='New'?' red':'')+'">'+p.badge+'</span>':'')+'<button class="qv" type="button" data-open="'+p.k+'">'+(p.live?'Quick view':'Notify me')+'</button></div><h3>'+p.n+'</h3><div class="meta"><span>'+(p.live?'<b>Hoodie £39.99</b> · Tee £23.49':'Price at launch')+'</span><i class="dot" title="Black"></i></div></article>';
+    h+='<article class="card" data-style="'+p.style+'"><div class="im"><img src="'+p.img[0]+'" alt="'+p.n+' print" loading="lazy" decoding="async" onerror="this.outerHTML=\'<div class=jfall style=height:100%;display:grid;place-items:center>'+p.n+'</div>\'">'+(p.img[1]?'<img class="pr" src="'+p.img[1]+'" alt="" loading="lazy" decoding="async">':'')+(p.badge?'<span class="badge lab'+(p.badge==='New'?' red':'')+'">'+p.badge+'</span>':'')+'<button class="qv" type="button" data-open="'+p.k+'">'+(p.live?'Quick view':'Coming soon')+'</button></div><h3>'+p.n+'</h3><div class="meta"><span>'+(p.live?'<b>Hoodie from £39.99</b> · Tee £23.49':'Price at launch')+'</span><i class="dot" title="Black"></i></div></article>';
   });
   h+='<a class="endcard" href="#shop"><span class="lab">Everything else</span><b>The whole shelf</b><span class="lab">Open the shop ↓</span></a>';
   rail.innerHTML=h;
@@ -393,8 +414,8 @@ document.documentElement.classList.add('js');
 
   /* layers (declared before anchors use them) */
   var ov=document.getElementById('ov'),openEl=null,lastFocus=null,lenis=null;
-  function openLayer(el){closeLayer(true);lastFocus=document.activeElement;openEl=el;el.classList.add('on');el.setAttribute('aria-hidden','false');ov.classList.add('on');if(lenis)lenis.stop();document.body.style.overflow='hidden';var f=el.querySelector('[data-close]');if(f)setTimeout(function(){try{f.focus({preventScroll:true,focusVisible:false});}catch(e){f.focus();}},60);}
-  function closeLayer(silent){if(!openEl)return;openEl.classList.remove('on');openEl.setAttribute('aria-hidden','true');openEl=null;ov.classList.remove('on');if(lenis)lenis.start();document.body.style.overflow='';if(!silent&&lastFocus)lastFocus.focus();}
+  function openLayer(el){closeLayer(true);var mb=document.querySelector('.mbar');if(mb)mb.classList.add('hide');lastFocus=document.activeElement;openEl=el;el.classList.add('on');el.setAttribute('aria-hidden','false');ov.classList.add('on');if(lenis)lenis.stop();document.body.style.overflow='hidden';var f=el.querySelector('[data-close]');if(f)setTimeout(function(){try{f.focus({preventScroll:true,focusVisible:false});}catch(e){f.focus();}},60);}
+  function closeLayer(silent){var mb=document.querySelector('.mbar');if(mb)mb.classList.remove('hide');if(!openEl)return;openEl.classList.remove('on');openEl.setAttribute('aria-hidden','true');openEl=null;ov.classList.remove('on');if(lenis)lenis.start();document.body.style.overflow='';if(!silent&&lastFocus)lastFocus.focus();}
   ov.addEventListener('click',function(){closeLayer();});
   document.querySelectorAll('[data-close]').forEach(function(x){x.addEventListener('click',function(){closeLayer();});});
   addEventListener('keydown',function(e){if(e.key==='Escape')closeLayer();});
@@ -416,7 +437,7 @@ document.documentElement.classList.add('js');
   var cur=null,cut='hood',pmImg=document.getElementById('pmImg');
   function upd(){var c=CUTS.filter(function(x){return x.id===cut;})[0],a=document.getElementById('pmAdd');
     document.getElementById('pmPrice').innerHTML=cur.live?gbp(c.p)+' <small>· incl. VAT, plus delivery</small>':'Coming soon';
-    a.textContent=cur.live?'Buy '+c.n.toLowerCase()+' in the shop':'Notify me at launch';
+    a.textContent=cur.live?'Buy '+c.n.toLowerCase()+' in the shop':(SOCIAL.instagram||SOCIAL.tiktok?'Follow for the Kuro drop':'Coming later this winter');
     a.href=cur.url||'#shop';if(cur.url){a.target='_blank';a.rel='noopener';}else{a.removeAttribute('target');}}
   function openP(k){cur=P.filter(function(p){return p.k===k;})[0];cut='hood';
     document.getElementById('pmT').textContent=cur.n;document.getElementById('pmLab').textContent=cur.lab;document.getElementById('pmDesc').textContent=cur.d;
@@ -432,10 +453,10 @@ document.documentElement.classList.add('js');
     sh.addEventListener('touchend',function(){if(sy===null)return;sh.style.transition='';document.getElementById('pm').style.setProperty('--dy','0px');if(dy>110)closeLayer();sy=null;});
   })();
   var toast=document.getElementById('toast'),tt;function showToast(m){toast.textContent=m;toast.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('on');},3000);}
-  document.getElementById('pmAdd').addEventListener('click',function(e){if(!cur.live){e.preventDefault();closeLayer();showToast('Saved. Kuro drops later this winter.');return;}if(cur.url){closeLayer(true);return;}e.preventDefault();closeLayer(true);var t=document.getElementById('shop');if(lenis)lenis.scrollTo(t,{offset:-60});else t.scrollIntoView({behavior:'smooth'});});
+  document.getElementById('pmAdd').addEventListener('click',function(e){if(!cur.live){var sl=SOCIAL.instagram||SOCIAL.tiktok;if(sl){a=this;window.open(sl,'_blank','noopener');}e.preventDefault();closeLayer();return;}if(cur.url){closeLayer(true);return;}e.preventDefault();closeLayer(true);var t=document.getElementById('shop');if(lenis)lenis.scrollTo(t,{offset:-60});else t.scrollIntoView({behavior:'smooth'});});
 
   /* strip rotation */
-  var msgs=['Winter drop · hoodies & sweatshirts','Printed on demand','Kuro · coming soon'],ri=0,rot=document.querySelector('#rot span');
+  var msgs=['Winter drop · hoodies & sweatshirts','Printed on demand','New: Kuro · 404 Mood Not Found'],ri=0,rot=document.querySelector('#rot span');
   if(!reduce)setInterval(function(){rot.style.opacity=0;setTimeout(function(){ri=(ri+1)%msgs.length;rot.textContent=msgs[ri];rot.style.opacity=1;},450);},3500);
 
   /* episode video: load only when visible, skip on data-saver / slow networks */
@@ -450,7 +471,19 @@ document.documentElement.classList.add('js');
 <script>
 var spread_shop_config={shopName:'certified-memer',locale:'en_GB',prefix:'https://certified-memer.myspreadshop.co.uk',baseId:'ssShop',updateMetadata:false,swipeMenu:true};
 </script>
-<script src="https://certified-memer.myspreadshop.co.uk/js/shopclient.nocache.js" async></script>
+<script>
+/* The Spreadshop loads only after the visitor agrees (it sets cookies), and only near the shop section, so the landing URL stays clean. */
+(function(){var done=false,el=document.getElementById('shop'),ck=document.getElementById('ck'),KEY='cm_shop_ok',ok=false;
+  try{ok=localStorage.getItem(KEY)==='1';}catch(e){}
+  function load(){if(done)return;done=true;var sc=document.createElement('script');sc.src='https://certified-memer.myspreadshop.co.uk/js/shopclient.nocache.js';sc.async=true;document.body.appendChild(sc);}
+  function ask(){if(ok){load();return;}ck.hidden=false;}
+  document.getElementById('ckYes').addEventListener('click',function(){ok=true;try{localStorage.setItem(KEY,'1');}catch(e){}ck.hidden=true;load();});
+  document.getElementById('ckNo').addEventListener('click',function(){ck.hidden=true;});
+  if(location.hash.indexOf('#!')===0){ask();}
+  if('IntersectionObserver' in window){new IntersectionObserver(function(es,o){if(es.some(function(e){return e.isIntersecting;})){ask();o.disconnect();}},{rootMargin:'600px 0px'}).observe(el);}else ask();
+  document.querySelectorAll('a[href="#shop"]').forEach(function(x){x.addEventListener('click',ask);});
+})();
+</script>
 
 </body>
 </html>
